@@ -29,7 +29,7 @@ requirements:
     - mypy
     - python-librt
   run:
-    - python >=${{ python_min }}
+    - python
     - ujson ==5.12.0
 
 tests:
