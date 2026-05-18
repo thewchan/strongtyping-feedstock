@@ -1,9 +1,8 @@
 schema_version: 1
 
 context:
-  python_min: 3.13
   name: strongtyping
-  version: "3.13.5"
+  version: "3.13.6"
 
 package:
   name: ${{ name|lower }}
@@ -11,29 +10,33 @@ package:
 
 source:
   url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: d075e2d446c94acdef6ea1015d8d5a9c55c09debc62f67af9039d17cc4fffa18
+  sha256: de6fb2b7ef4b1c535cc856dd4ea06d17cfa59f86b760de973499a3411d953cf5
 
 build:
+  skip: match(python, "<3.13")
   number: 0
-  noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
+  build:
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
   host:
     - pip
-    - python ${{ python_min }}.*
+    - python
     - setuptools >=61.0
     - wheel
+    - mypy
+    - python-librt
   run:
-    - python >=${{ python_min }}
-    - ujson >=5.5.0,<6.0.0
+    - python
+    - ujson ==5.12.0
 
 tests:
   - python:
       imports:
         - strongtyping
       pip_check: true
-      python_version: ${{ python_min }}.*
 
 about:
   summary: Decorator which checks whether the function is called with the correct type of parameters
