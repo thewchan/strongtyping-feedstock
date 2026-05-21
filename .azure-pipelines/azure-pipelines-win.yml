@@ -8,10 +8,6 @@ jobs:
     vmImage: windows-2022
   strategy:
     matrix:
-      win_64_python3.13.____cp313:
-        CONFIG: win_64_python3.13.____cp313
-        UPLOAD_PACKAGES: 'True'
-        store_build_artifacts: false
       win_64_python3.14.____cp314:
         CONFIG: win_64_python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
