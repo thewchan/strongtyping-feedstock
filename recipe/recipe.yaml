@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: strongtyping
-  version: "3.13.7"
+  version: "3.13.8"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 53c31c6a514bdf58f7f60a6d9faf343c844ef68c3f2257ed648f6e7e66faacab
+  sha256: 12fb7e886d625180b5d3da9879d221fbba6499c8435755f3516e18a0035e3a24
 
 build:
   skip: match(python, "<3.13")
@@ -26,11 +26,14 @@ requirements:
     - python
     - setuptools >=61.0
     - wheel
-    - mypy
+    - mypy >=1.20.1
+    - mypyc >=1.20.1
     - python-librt
   run:
     - python
-    - ujson ==5.12.0
+    - ujson >=5.12.0
+    - python-librt >=0.10.0
+    - typing-extensions >=4.4.0
 
 tests:
   - python:
