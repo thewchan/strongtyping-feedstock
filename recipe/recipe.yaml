@@ -9,7 +9,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
+  url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v3.14.0-7.tar.gz
   sha256: 0ae8ed1080c1f1f052028a3df770ee6f1f6bac54181db8a608bab529491699c2
 
 build:
