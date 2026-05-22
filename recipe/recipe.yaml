@@ -2,15 +2,15 @@ schema_version: 1
 
 context:
   name: strongtyping
-  version: "3.14.0.post7"
+  version: "3.14.1"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v3.14.0-7.tar.gz
-  sha256: 0ae8ed1080c1f1f052028a3df770ee6f1f6bac54181db8a608bab529491699c2
+  url: https://github.com/FelixTheC/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 3b9802a29126680c071d86eb1ea843188d8d65cb72f3359f869c541cac5c916c
 
 build:
   skip: match(python, "<3.14")
